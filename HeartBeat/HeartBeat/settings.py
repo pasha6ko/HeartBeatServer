@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'Registration.apps.RegistrationConfig',
+    'HeartBeat',
+    'apps.Registration.apps.RegistrationConfig',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'HeartBeat.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DateAppTest',
+        'NAME': 'DateAppTest2',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',
