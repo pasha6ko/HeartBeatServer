@@ -1,5 +1,4 @@
 from django.contrib.auth.base_user import AbstractBaseUser
-from django.db import models
 from django.contrib.gis.db import models
 
 
@@ -42,8 +41,8 @@ class Profile(models.Model):
         db_table = "Profile"
 class Like(models.Model):
 
-    profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,black=False)
-    liked_profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,black=False)
+    profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,blank=False)
+    liked_profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,blank=False)
 
     def __str__(self):
         return self.id
@@ -54,8 +53,8 @@ class Like(models.Model):
 
 class Disike(models.Model):
 
-    profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,black=False)
-    disliked_profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,black=False)
+    profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,blank=False)
+    disliked_profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,blank=False)
 
     def __str__(self):
         return self.id
@@ -65,8 +64,8 @@ class Disike(models.Model):
         db_table = "Disikes"
 
 class Connection(models.Model):
-    first_profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,black=False)
-    second_profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,black=False)
+    first_profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,blank=False)
+    second_profile_id = models.ForeignKey(Profile, on_delete=models.CASCADE,blank=False)
 
     def __str__(self):
         return self.id
@@ -81,8 +80,8 @@ class PreferenceTag(models.Model):
         db_table = "PreferencesTags"
 
 class ProfileTag(models.Model):
-    profile_id = models.ForeignKey(Profile,on_delete=models.CASCADE,black=False)
-    tag_id = models.ForeignKey(PreferenceTag,on_delete=models.CASCADE,black=False)
+    profile_id = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=False)
+    tag_id = models.ForeignKey(PreferenceTag,on_delete=models.CASCADE,blank=False)
     class Meta:
         app_label = "HeartBeat"
         db_table = "ProfilesTags"
@@ -93,22 +92,24 @@ class Target(models.Model):
         db_table = "Targets"
 
 class ProfileTarget(models.Model):
-    profile_id = models.ForeignKey(Profile,on_delete=models.CASCADE,black=False)
-    target_id = models.ForeignKey(Target,on_delete=models.CASCADE,black=False)
+    profile_id = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=False)
+    target_id = models.ForeignKey(Target,on_delete=models.CASCADE,blank=False)
     class Meta:
         app_label = "HeartBeat"
         db_table = "ProfilesTargets"
+'''
 class Images(models.Model):
-    user_id = models.ForeignKey(Profile,on_delete=models.CASCADE,black=False)
-    image_link = models.CharField(max_length=255,black=False)
+    profile_id = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=False)
+    image_link = models.CharField(max_length=255,blank=False)
 
     class Meta:
         app_label = "HeartBeat"
         db_table = "Images"
 class Device(models.Model):
-    user_id = models.ForeignKey(User,on_delete=models.CASCADE,black=False)
-    device_name = models.CharField(max_length=100,black=False)
+    user_id = models.ForeignKey(User,on_delete=models.CASCADE,blank=False)
+    device_name = models.CharField(max_length=100,blank=False)
 
     class Meta:
         app_label = "HeartBeat"
         db_table = "Devices"
+        '''
