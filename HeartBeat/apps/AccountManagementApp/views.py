@@ -4,8 +4,6 @@ from ..serializers import UserSerializer
 from ..models import User
 from ..validator import Validator
 
-
-# Create your views here.
 class SighInView(APIView):
     def get(self,request):
 
@@ -29,7 +27,7 @@ class SighInView(APIView):
 
 
 class RegisterView(APIView):
-    def put(self,request):
+    def put(self,request): #Add existing login
 
         login = request.data.get('login') or request.query_params.get('login')
         password = request.data.get('password') or request.query_params.get('password')
@@ -47,6 +45,7 @@ class RegisterView(APIView):
 
         if not Validator.password_validation(password):
             return Response({'error':"Uncorrect password"},status=422)
+
 
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():

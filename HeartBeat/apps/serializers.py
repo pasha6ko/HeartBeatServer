@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ['user_id','gender_id','name','discription','is_online',
+        fields = ['user','gender','name','discription','is_online',
                   'active_in_search','last_coordinates','contact_data','birth_day']
 class GenderSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,15 +17,15 @@ class GenderSerializer(serializers.ModelSerializer):
 class LikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Like
-        fields = ['profile_id','liked_profile_id']
+        fields = ['profile','liked_profile']
 class DisikeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Disike
-        fields = ['profile_id','disliked_profile_id']
+        fields = ['profile','disliked_profile']
 class ConnectionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Connection
-        fields = ['first_profile_id','second_profile_id']
+        fields = ['first_profile','second_profile']
 class PreferenceTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = PreferenceTag
@@ -33,7 +33,7 @@ class PreferenceTagSerializer(serializers.ModelSerializer):
 class ProfileTagSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProfileTag
-        fields = ['profile_id','tag_id']
+        fields = ['profile','tag']
 class TargetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Target
@@ -41,14 +41,14 @@ class TargetSerializer(serializers.ModelSerializer):
 class ProfileTargetSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProfileTarget
-        fields = ['profile_id','target_id']
+        fields = ['profile','target']
         '''
 class ImagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Images
-        fields = ['profile_id','image_link']
+        fields = ['profile','image_link']
 class DeviceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Device
-        fields = ['user_id','device_name']
+        fields = ['user','device_name']
         '''

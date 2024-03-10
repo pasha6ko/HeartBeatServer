@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'HeartBeat',
     'apps.AccountManagementApp.apps.AccountmanagementappConfig',
     'apps.ProfileManagementApp.apps.ProfilemanagementappConfig',
+    'apps.EstimationApp.apps.EstimationappConfig',
+    'apps.TagManagmentApp.apps.TagmanagmentappConfig',
+
 ]
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
